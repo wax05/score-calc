@@ -329,7 +329,6 @@ if __name__ == "__main__":
                                     datas = res.fetchall()
                                     conn.commit()
                                     print("학번\t\t이름\t웹\t파이썬\t알고리즘")
-                                    print(datas)
                                     for row in datas:
                                         for column in row:
                                             print(column,end="\t")
@@ -349,6 +348,8 @@ if __name__ == "__main__":
                                 except sqlite3.OperationalError as e:
                                     print(e)
                                     print("\n결과가 존재하지 않습니다\n")
+                                except ValueError:
+                                    print("문법에 맞지 않습니다.")
                                 except Exception as e:
                                     print(e)
             elif command == "3":
